@@ -1,1 +1,46 @@
+using System;
+
+namespace CalculoSalarioSemanal
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Cálculo de Salario Semanal ===");
+            
+            // 1. Leer costo por hora
+            Console.Write("Ingrese el costo por hora trabajada: ");
+            string entradaCosto = Console.ReadLine();
+            if (!decimal.TryParse(entradaCosto, out decimal costoHora) || costoHora < 0)
+            {
+                Console.WriteLine("Valor inválido para el costo por hora.");
+                return;
+            }
+
+            // 2. Leer cantidad de horas trabajadas
+            Console.Write("Ingrese la cantidad de horas trabajadas en la semana: ");
+            string entradaHoras = Console.ReadLine();
+            if (!decimal.TryParse(entradaHoras, out decimal horasTrabajadas) || horasTrabajadas < 0)
+            {
+                Console.WriteLine("Valor inválido para las horas trabajadas.");
+                return;
+            }
+
+            // 3. Calcular total devengado
+            decimal totalDevengado = costoHora * horasTrabajadas;
+
+            // 4. Mostrar resultado
+            Console.WriteLine();
+            Console.WriteLine("----- Resultado -----");
+            Console.WriteLine($"Costo por hora:       {costoHora:C}");
+            Console.WriteLine($"Horas trabajadas:     {horasTrabajadas:N2}");
+            Console.WriteLine($"Total devengado:      {totalDevengado:C}");
+            Console.WriteLine("----------------------");
+
+            // Espera para que el usuario vea el resultado
+            Console.WriteLine("\nPresione una tecla para salir...");
+            Console.ReadKey();
+        }
+    }
+}
 
