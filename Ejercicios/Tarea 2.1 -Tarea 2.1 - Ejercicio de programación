@@ -1,4 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
 
 namespace CalculoSalarioSemanal
 {
@@ -7,7 +13,7 @@ namespace CalculoSalarioSemanal
         static void Main(string[] args)
         {
             Console.WriteLine("=== Cálculo de Salario Semanal ===");
-            
+
             // 1. Leer costo por hora
             Console.Write("Ingrese el costo por hora trabajada: ");
             string entradaCosto = Console.ReadLine();
@@ -43,4 +49,3 @@ namespace CalculoSalarioSemanal
         }
     }
 }
-
