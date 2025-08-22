@@ -1,52 +1,45 @@
 using System;
 using System.Collections.Generic;
-using DirectorioEmp.Clases;
 
-namespace DirectorioEmp
+namespace DirectorioEmp.Clases
 {
-    internal class Program
+    public class Persona
     {
-        static void Main(string[] args)
+        public string numeroID { get; set; }
+        public string nombres { get; set; }
+        public string apellidos { get; set; }
+        public DateTime fechaNacimiento { get; set; }
+        public string telefono { get; set; }
+        public string celular { get; set; }
+        public string pais { get; set; }
+        public string ciudad { get; set; }
+        public string direccion { get; set; }
+        public string profesion { get; set; }
+
+        public List<Grado> Grados { get; set; }
+        public List<Cargo> Cargos { get; set; }
+
+        public Persona()
         {
-            // instancia de Persona
-            Persona miPersona = new Persona("0801200312345", "Josue ", "Barahona", new DateTime(2003, 5, 15), "22334115", "99887766", "Honduras", "Tegucigalpa", "Colonia Miraflores", "Ingeniero");
+            this.Grados = new List<Grado>();
+            this.Cargos = new List<Cargo>();
+        }
 
-            // instancias de Grado y Cargo
-            Grado gradoUniversitario = new Grado(1, "Universitario", "Universidad Metropolitana", "Ingeniería en informatica", new DateTime(2020, 1, 1), new DateTime(2025, 12, 15), "Pregrado", DateTime.Now.AddYears(1), "Honduras");
-            Cargo cargoActual = new Cargo(1, "Desarrollador de Software", new DateTime(2023, 1, 10), DateTime.Now, true, "Diuns", 17000.00m, "Desarrollo de aplicaciones web y móviles.");
+        public Persona(string numeroID, string nombres, string apellidos, DateTime fechaNacimiento, string telefono, string celular, string pais, string ciudad, string direccion, string profesion)
+        {
+            this.numeroID = numeroID;
+            this.nombres = nombres;
+            this.apellidos = apellidos;
+            this.fechaNacimiento = fechaNacimiento;
+            this.telefono = telefono;
+            this.celular = celular;
+            this.pais = pais;
+            this.ciudad = ciudad;
+            this.direccion = direccion;
+            this.profesion = profesion;
 
-            miPersona.Grados.Add(gradoUniversitario);
-            miPersona.Cargos.Add(cargoActual);
-
-            Console.WriteLine($"--- Datos de la Persona ---");
-            Console.WriteLine($"ID: {miPersona.numeroID}");
-            Console.WriteLine($"Nombre Completo: {miPersona.nombres} {miPersona.apellidos}");
-            Console.WriteLine($"Fecha de Nacimiento: {miPersona.fechaNacimiento.ToShortDateString()}");
-            Console.WriteLine($"Profesión: {miPersona.profesion}");
-            Console.WriteLine();
-
-            Console.WriteLine("--- Grados Académicos ---");
-            foreach (var grado in miPersona.Grados)
-            {
-                Console.WriteLine($"Título: {grado.nombreTitulo}");
-                Console.WriteLine($"Institución: {grado.institucion}");
-                Console.WriteLine($"Nivel: {grado.nivelEducativo}");
-                Console.WriteLine($"Fechas: {grado.fechaInicio.ToShortDateString()} - {grado.fechaFinal.ToShortDateString()}");
-                Console.WriteLine();
-            }
-
-            Console.WriteLine("--- Historial de Cargos ---");
-            foreach (var cargo in miPersona.Cargos)
-            {
-                Console.WriteLine($"Título del Cargo: {cargo.titulo}");
-                Console.WriteLine($"Empresa: {cargo.empresa}");
-                Console.WriteLine($"Salario: {cargo.salario:C}");
-                Console.WriteLine($"Fechas: {cargo.fechaInicio.ToShortDateString()} - {cargo.fechaFinal.ToShortDateString()}");
-                Console.WriteLine($"Empleado Actual: {(cargo.empleadoActual ? "Sí" : "No")}");
-                Console.WriteLine();
-            }
-
-            Console.ReadLine();
+            this.Grados = new List<Grado>();
+            this.Cargos = new List<Cargo>();
         }
     }
 }
